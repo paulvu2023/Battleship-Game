@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/paulvu2023/Battleship-Game#readme",
   "devDependencies": {
+    "jest": "^29.7.0",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
   },
