@@ -1,4 +1,4 @@
-const game = require("./game");
+import { Ship } from "./game";
 
 describe("Ship", () => {
   it("sink when the # of times it has been hit = length", () => {
