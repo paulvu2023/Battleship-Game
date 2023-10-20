@@ -4,19 +4,54 @@ class Gameboard {
   }
 
   placeShip(ship, xCoord, yCoord, direction = "vertical") {
+    if (this.isValidPlacement(ship, xCoord, yCoord, direction)) {
+      if (direction === "vertical") {
+        let index = 1;
+        for (let i = yCoord; i < yCoord + ship.length; i++) {
+          this.board[xCoord][i] = { ship, index };
+          index += 1;
+        }
+      } else {
+        let index = 1;
+        for (let i = xCoord; i < xCoord + ship.length; i++) {
+          this.board[i][yCoord] = { ship, index };
+          index += 1;
+        }
+      }
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  isValidPlacement(ship, xCoord, yCoord, direction = "vertical") {
+    if (xCoord < 0 || yCoord < 0) {
+      return false;
+    }
+
     if (direction === "vertical") {
-      for (let i = yCoord; i < yCoord + ship.length; i++) {
-        if (this.board[xCoord][i] && this.board[xCoord][i] === null) {
-          this.board[xCoord][i] = ship;
-        } else {
+      if (
+        xCoord + ship.length > this.board.length ||
+        yCoord >= this.board[0].length
+      ) {
+        return false;
+      }
+
+      for (let i = xCoord; i < xCoord + ship.length; i++) {
+        if (this.board[i][yCoord] !== null) {
           return false;
         }
       }
     } else {
-      for (let i = xCoord; i < xCoord + ship.length; i++) {
-        if (this.board[i][yCoord] && this.board[i][yCoord] === null) {
-          this.board[i][yCoord] = ship;
-        } else {
+      if (
+        yCoord + ship.length > this.board[0].length ||
+        xCoord >= this.board.length
+      ) {
+        return false;
+      }
+
+      for (let i = yCoord; i < yCoord + ship.length; i++) {
+        if (this.board[xCoord][i] !== null) {
           return false;
         }
       }
