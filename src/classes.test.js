@@ -1,4 +1,4 @@
-import { Ship, Gameboard } from "./game";
+import { Ship, Gameboard } from "./classes";
 
 describe("Gameboard", () => {
   it("properly places ships on the board", () => {
