@@ -10,10 +10,11 @@ class Gameboard {
 
   receiveAttack(xCoord, yCoord) {
     if (this.board[xCoord][yCoord] !== null) {
-      if (typeof this.board[xCoord][yCoord] === "object") {
-        this.board[xCoord][yCoord].ship.hit();
+      const boardObject = this.board[xCoord][yCoord];
+      if (typeof boardObject === "object" && boardObject.ship instanceof Ship) {
+        boardObject.ship.hit();
         this.board[xCoord][yCoord] = "Hit";
-        if (this.board[xCoord][yCoord].ship.isSunk()) {
+        if (boardObject.ship.isSunk()) {
           this.shipCount -= 1;
         }
         return true;
