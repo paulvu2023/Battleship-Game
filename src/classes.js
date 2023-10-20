@@ -3,6 +3,20 @@ class Gameboard {
     this.board = Array.from({ length: 10 }, () => Array(10).fill(null));
   }
 
+  receiveAttack(xCoord, yCoord) {
+    if (this.board[xCoord][yCoord] !== null) {
+      if (typeof this.board[xCoord][yCoord] === "object") {
+        this.board[xCoord][yCoord].ship.hit();
+        this.board[xCoord][yCoord] = "Hit";
+        return true;
+      }
+      return false;
+    } else {
+      this.board[xCoord][yCoord] = "Miss";
+      return false;
+    }
+  }
+
   placeShip(ship, xCoord, yCoord, direction = "vertical") {
     if (this.isValidPlacement(ship, xCoord, yCoord, direction)) {
       if (direction === "vertical") {
