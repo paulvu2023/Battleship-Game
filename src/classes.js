@@ -1,3 +1,22 @@
+class Player {
+  constructor() {
+    this.gameboard = new Gameboard();
+    this.enemy = null;
+  }
+
+  attack(xCoord, yCoord) {
+    this.enemy.receiveAttack(xCoord, yCoord);
+  }
+
+  receiveAttack(xCoord, yCoord) {
+    this.gameboard.receiveAttack(xCoord, yCoord);
+  }
+
+  chooseEnemy(player) {
+    this.enemy = player;
+  }
+}
+
 class Gameboard {
   constructor() {
     this.board = Array.from({ length: 10 }, () => Array(10).fill(null));
