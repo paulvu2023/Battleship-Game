@@ -21,6 +21,7 @@ class Gameboard {
         }
       }
     }
+    return true;
   }
 }
 
@@ -43,4 +44,4 @@ class Ship {
   }
 }
 
-export { Ship };
+export { Ship, Gameboard };
