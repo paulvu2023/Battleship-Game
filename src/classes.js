@@ -4,6 +4,10 @@ class Gameboard {
     this.shipCount = 0;
   }
 
+  countShips() {
+    return this.shipCount;
+  }
+
   receiveAttack(xCoord, yCoord) {
     if (this.board[xCoord][yCoord] !== null) {
       if (typeof this.board[xCoord][yCoord] === "object") {
