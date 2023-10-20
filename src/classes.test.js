@@ -15,6 +15,20 @@ describe("Gameboard", () => {
     expect(ship2Result).toBe(false);
     expect(board.board[9][9]).toBe(null);
   });
+
+  it("correctly handles attacks", () => {
+    const board = new Gameboard();
+    const ship = new Ship(2);
+    board.placeShip(ship, 0, 0);
+
+    const hit = board.receiveAttack(0, 0);
+    const miss = board.receiveAttack(9, 9);
+    expect(hit).toBe(true);
+    expect(miss).toBe(false);
+
+    expect(board.board[0][0]).toBe("Hit");
+    expect(board.board[9][9]).toBe("Miss");
+  });
 });
 
 describe("Ship", () => {
