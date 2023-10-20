@@ -16,6 +16,22 @@ class Player {
     this.enemy = player;
   }
 }
+class AI extends Player {
+  constructor() {
+    super();
+    this.attacks = []; // array of previous attacks. Example: '09' = coordinates[0][9]
+  }
+
+  attack() {
+    let xCoord = Math.floor(Math.random() * 10);
+    let yCoord = Math.floor(Math.random() * 10);
+    while (attacks.includes(`${xCoord}${yCoord}`)) {
+      xCoord = Math.floor(Math.random() * 10);
+      yCoord = Math.floor(Math.random() * 10);
+    }
+    this.enemy.receiveAttack(xCoord, yCoord);
+  }
+}
 
 class Gameboard {
   constructor() {
