@@ -1,6 +1,7 @@
 class Gameboard {
   constructor() {
     this.board = Array.from({ length: 10 }, () => Array(10).fill(null));
+    this.shipCount = 0;
   }
 
   receiveAttack(xCoord, yCoord) {
@@ -8,6 +9,9 @@ class Gameboard {
       if (typeof this.board[xCoord][yCoord] === "object") {
         this.board[xCoord][yCoord].ship.hit();
         this.board[xCoord][yCoord] = "Hit";
+        if (this.board[xCoord][yCoord].ship.isSunk()) {
+          this.shipCount -= 1;
+        }
         return true;
       }
       return false;
@@ -32,6 +36,7 @@ class Gameboard {
           index += 1;
         }
       }
+      this.shipCount += 1;
       return true;
     } else {
       return false;
