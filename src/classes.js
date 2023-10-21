@@ -25,7 +25,7 @@ class AI extends Player {
   attack() {
     let xCoord = Math.floor(Math.random() * 10);
     let yCoord = Math.floor(Math.random() * 10);
-    while (attacks.includes(`${xCoord}${yCoord}`)) {
+    while (this.attacks.includes(`${xCoord}${yCoord}`)) {
       xCoord = Math.floor(Math.random() * 10);
       yCoord = Math.floor(Math.random() * 10);
     }
