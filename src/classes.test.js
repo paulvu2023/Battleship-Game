@@ -1,4 +1,25 @@
-import { Ship, Gameboard } from "./classes";
+import { experiments } from "webpack";
+import { Ship, Gameboard, Player, AI } from "./classes";
+
+describe("Player and AI", () => {
+  it("properly attacks and receive attacks", () => {
+    const player = new Player();
+    const ai = new AI();
+
+    player.chooseEnemy(ai);
+    ai.chooseEnemy(player);
+
+    const playerShip = new Ship(3);
+    const aiShip = new Ship(1);
+
+    player.gameboard.placeShip(playerShip, 0, 0);
+    ai.gameboard.placeShip(aiShip, 0, 0);
+
+    player.attack(0, 0);
+    expect(ai.gameboard.board[0][0]).toBe("Hit");
+    expect(ai.gameboard.countShips()).toBe(0);
+  });
+});
 
 describe("Gameboard", () => {
   it("properly places ships on the board", () => {
