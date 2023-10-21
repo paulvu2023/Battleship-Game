@@ -29,6 +29,7 @@ class AI extends Player {
       xCoord = Math.floor(Math.random() * 10);
       yCoord = Math.floor(Math.random() * 10);
     }
+    this.attacks.push(`${xCoord}${yCoord}`);
     this.enemy.receiveAttack(xCoord, yCoord);
   }
 }
@@ -128,6 +129,7 @@ class Ship {
 
   hit() {
     this.hits += 1;
+    this.isSunk();
   }
 
   isSunk() {
@@ -138,4 +140,4 @@ class Ship {
   }
 }
 
-export { Ship, Gameboard };
+export { Ship, Gameboard, Player, AI };
