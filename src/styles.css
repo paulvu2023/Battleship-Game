@@ -33,7 +33,7 @@ body {
 
 .fa-github-alt:hover {
   transform: rotate(360deg);
-  color: red;
+  color: rgb(179, 246,255);
 }
 
 .main {
