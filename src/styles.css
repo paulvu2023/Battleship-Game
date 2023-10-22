@@ -7,3 +7,9 @@ body {
   font-family: 'Audiowide', Arial, Helvetica, sans-serif;
   background: rgb(1, 1, 60);
 }
+
+.header {
+  font-size: 70px;
+  font-weight: 800;
+  color: rgb(255, 0, 0);
+}
