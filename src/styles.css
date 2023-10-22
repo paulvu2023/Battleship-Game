@@ -4,5 +4,6 @@ html, body {
 }
 
 body {
+  font-family: 'Audiowide', Arial, Helvetica, sans-serif;
   background: rgb(1, 1, 60);
 }
