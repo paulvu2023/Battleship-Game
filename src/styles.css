@@ -14,7 +14,19 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 20px;
   font-size: 70px;
   font-weight: 800;
   color: rgb(255, 0, 0);
+}
+
+.fa-github-alt {
+  font-size: 30px;
+  color: white;
+  transition: all 0.25s ease-in-out;
+}
+
+.fa-github-alt:hover {
+  transform: rotate(360deg);
+  color: red;
 }
