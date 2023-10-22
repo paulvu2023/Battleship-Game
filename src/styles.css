@@ -66,8 +66,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: calc(20px + 2vw);
-  height: calc(20px + 2vw);
+  width: calc(20px + 1vw);
+  height: calc(20px + 1vw);
   border: 1px solid rgb(168, 207, 242);
   font-weight: bold;
 }
