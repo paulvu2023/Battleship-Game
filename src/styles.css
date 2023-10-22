@@ -38,17 +38,20 @@ body {
 
 .main {
   display: flex;
+  justify-content: center;
+  gap: 80px;
   flex: 1;
-  gap: 20px;
 }
 
 /* Styling for the player's board */
-.left {
+.left, .right {
   display: flex;
   flex: 1;
   justify-content: end;
   align-items: center;
+  overflow:visible
 }
+
 
 .player-board {
   display: flex;
@@ -66,8 +69,31 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: calc(20px + 1vw);
-  height: calc(20px + 1vw);
+  width: calc(20px + 1.3vw);
+  height: calc(20px + 1.3vw);
   border: 1px solid rgb(168, 207, 242);
+  font-weight: bold;
+}
+
+/* Styling for AI board */
+.right {
+  justify-content: start;
+}
+
+.ai-board {
+  display: flex;
+  border: 2px solid rgb(249, 179, 173);
+  flex-direction: column;
+  margin-right: 20px;
+  box-shadow: rgba(255, 98, 93, 0.7) 0px 22px 70px 10px;
+}
+
+.ai-board .square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(20px + 2vw);
+  height: calc(20px + 2vw);
+  border: 1px solid rgb(251, 148, 148);
   font-weight: bold;
 }
