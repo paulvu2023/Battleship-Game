@@ -3,6 +3,10 @@ html, body {
   width: 100%;
 }
 
+* {
+  overflow: hidden;
+}
+
 body {
   display: grid;
   grid-template-rows: 150px 1fr;
@@ -10,6 +14,7 @@ body {
   background: rgb(1, 1, 60);
 }
 
+/* Styling for header */
 .header {
   display: flex;
   justify-content: center;
@@ -29,4 +34,40 @@ body {
 .fa-github-alt:hover {
   transform: rotate(360deg);
   color: red;
+}
+
+.main {
+  display: flex;
+  flex: 1;
+  gap: 20px;
+}
+
+/* Styling for the player's board */
+.left {
+  display: flex;
+  flex: 1;
+  justify-content: end;
+  align-items: center;
+}
+
+.player-board {
+  display: flex;
+  border: 2px solid rgb(219, 240, 247);
+  flex-direction: column;
+  margin-right: 20px;
+  box-shadow: rgba(93, 255, 255, 0.56) 0px 22px 70px 4px;
+}
+
+.row {
+  display: flex;
+}
+
+.player-board .square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(20px + 2vw);
+  height: calc(20px + 2vw);
+  border: 1px solid rgb(168, 207, 242);
+  font-weight: bold;
 }
