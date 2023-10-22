@@ -21,8 +21,8 @@ body {
   align-items: center;
   gap: 20px;
   font-size: 70px;
-  font-weight: 800;
-  color: rgb(255, 0, 0);
+  color: white;
+  text-shadow: 0 0 40px rgb(179, 246, 255);
 }
 
 .fa-github-alt {
