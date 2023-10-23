@@ -33,6 +33,7 @@ function newGame() {
       updateBoardDisplay(ai, true);
       setTimeout(() => {
         ai.attack();
+        updateBoardDisplay(player);
       }, 1000);
       if (player.gameboard.shipCount === 0) {
         // Show win screen
