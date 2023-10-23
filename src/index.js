@@ -3,11 +3,20 @@ import {
   updateBoardDisplay,
   resetBoardDisplay,
   updateShipCountDisplay,
+  displayGameoverPopup,
 } from "./display";
 import "./styles.css";
 
+const newGameButton = document.getElementById("newgame");
 let player = null;
 let ai = null;
+
+newGameButton.addEventListener("click", () => {
+  document.querySelector(".gameover").close();
+  resetBoardDisplay(player);
+  resetBoardDisplay(ai);
+  newGame();
+});
 
 document.addEventListener("DOMContentLoaded", (event) => {
   newGame();
@@ -43,9 +52,9 @@ function newGame() {
         updateBoardDisplay(player);
       }, 1000);
       if (player.gameboard.shipCount === 0) {
-        // Show win screen
+        displayGameoverPopup("lose");
       } else if (ai.gameboard.shipCount === 0) {
-        // Show lose screen
+        displayGameoverPopup("win");
       }
     });
   });

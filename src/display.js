@@ -1,3 +1,14 @@
+function displayGameoverPopup(winOrLose) {
+  const popup = document.querySelector(".gameover");
+  const winMessage = document.querySelector(".who-won");
+  if ((winOrLose = "win")) {
+    winMessage.textContent = "YOU WIN";
+  } else {
+    winMessage.textContent = "YOU LOSE";
+  }
+  popup.showModal();
+}
+
 function updateShipCountDisplay(player, isAI = false) {
   if (isAI) {
     document.querySelector(".ai-ship-count span").textContent =
@@ -8,7 +19,7 @@ function updateShipCountDisplay(player, isAI = false) {
   }
 }
 
-function resetBoardDisplay() {
+function resetBoardDisplay(player) {
   for (let i = 0; i < player.gameboard.board.length; i++) {
     for (let j = 0; j < player.gameboard.board.length; j++) {
       const thisPlayerSquare = document.getElementById(`p${i}-${j}`);
@@ -39,4 +50,9 @@ function updateBoardDisplay(player, isAI = false) {
   updateShipCountDisplay(player, isAI);
 }
 
-export { updateBoardDisplay, resetBoardDisplay, updateShipCountDisplay };
+export {
+  updateBoardDisplay,
+  resetBoardDisplay,
+  updateShipCountDisplay,
+  displayGameoverPopup,
+};
