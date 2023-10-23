@@ -1,9 +1,16 @@
-import { Ship, Gameboard, Player, AI } from "./game";
+import { Ship, Player, AI } from "./game";
 import "./styles.css";
 
+let player = null;
+let ai = null;
+
 document.addEventListener("DOMContentLoaded", (event) => {
-  const player = new Player();
-  const ai = new AI();
+  newGame();
+});
+
+function newGame() {
+  player = new Player();
+  ai = new AI();
 
   player.chooseEnemy(ai);
   ai.chooseEnemy(player);
@@ -17,11 +24,16 @@ document.addEventListener("DOMContentLoaded", (event) => {
   const AIBoard = document.querySelectorAll(".ai-board .square");
   AIBoard.forEach((square) => {
     square.addEventListener("click", () => {
-      const coordinates = square.id.split;
-      player.attack(coordinates[0], coordinates[1]);
+      const coordinates = square.id.split("-");
+      player.attack(parseInt(coordinates[0]), parseInt(coordinates[1]));
       setTimeout(() => {
         ai.attack();
       }, 1000);
+      if (player.gameboard.shipCount === 0) {
+        // Show win screen
+      } else if (ai.gameboard.shipCount === 0) {
+        // Show lose screen
+      }
     });
   });
-});
+}

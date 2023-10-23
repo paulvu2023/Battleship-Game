@@ -2,8 +2,6 @@ class Player {
   constructor() {
     this.gameboard = new Gameboard();
     this.enemy = null;
-    this.won = null;
-    this.lost = null;
   }
 
   attack(xCoord, yCoord) {
