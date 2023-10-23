@@ -30,7 +30,6 @@ function newGame() {
         .replace("a", "")
         .split("-");
       player.attack(parseInt(coordinates[0]), parseInt(coordinates[1]));
-      console.log(coordinates);
       updateBoardDisplay(ai, true);
       setTimeout(() => {
         ai.attack();

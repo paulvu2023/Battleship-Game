@@ -1,3 +1,14 @@
+function resetBoardDisplay() {
+  for (let i = 0; i < player.gameboard.board.length; i++) {
+    for (let j = 0; j < player.gameboard.board.length; j++) {
+      const thisPlayerSquare = document.getElementById(`p${i}-${j}`);
+      const thisAISquare = document.getElementById(`a${i}-${j}`);
+      thisPlayerSquare.style.backgroundColor = "transparent";
+      thisAISquare.style.backgroundColor = "transparent";
+    }
+  }
+}
+
 function updateBoardDisplay(player, isAI = false) {
   // 'player' could be either the user or the AI
   for (let i = 0; i < player.gameboard.board.length; i++) {
@@ -17,4 +28,4 @@ function updateBoardDisplay(player, isAI = false) {
   }
 }
 
-export { updateBoardDisplay };
+export { updateBoardDisplay, resetBoardDisplay };
