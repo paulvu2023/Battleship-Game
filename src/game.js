@@ -65,12 +65,12 @@ class Gameboard {
   placeShip(ship, xCoord, yCoord, direction = "vertical") {
     if (this.isValidPlacement(ship, xCoord, yCoord, direction)) {
       if (direction === "vertical") {
-        for (let i = yCoord; i < yCoord + ship.length; i++) {
-          this.board[xCoord][i] = ship;
-        }
-      } else {
         for (let i = xCoord; i < xCoord + ship.length; i++) {
           this.board[i][yCoord] = ship;
+        }
+      } else {
+        for (let i = yCoord; i < yCoord + ship.length; i++) {
+          this.board[xCoord][i] = ship;
         }
       }
       this.shipCount += 1;
