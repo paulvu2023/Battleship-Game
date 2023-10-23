@@ -46,12 +46,22 @@ body {
 /* Styling for the player's board */
 .left, .right {
   display: flex;
+  flex-direction: column;
   flex: 1;
-  justify-content: end;
-  align-items: center;
+  justify-content: center;
+  align-items: end;
   overflow:visible
 }
 
+.player-ship-count, .ai-ship-count {
+  font-size: 20px;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.player-ship-count {
+  margin-right: 20px;
+}
 
 .player-board {
   display: flex;
@@ -77,7 +87,7 @@ body {
 
 /* Styling for AI board */
 .right {
-  justify-content: start;
+  align-items: start;
 }
 
 .ai-board {
