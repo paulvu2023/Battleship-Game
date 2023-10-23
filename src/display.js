@@ -9,7 +9,7 @@ function updateBoardDisplay(player, isAI = false) {
         thisSquare = document.getElementById(`p${i}-${j}`);
       }
       if (player.gameboard.board[i][j] === "Miss") {
-        thisSquare.style.backgroundColor = "#2E0187";
+        thisSquare.style.backgroundColor = "#0f3366";
       } else if (player.gameboard.board[i][j] === "Hit") {
         thisSquare.style.color = "red";
       }
