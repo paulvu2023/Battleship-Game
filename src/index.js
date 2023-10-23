@@ -1,4 +1,5 @@
 import { Ship, Player, AI } from "./game";
+import { updateBoardDisplay } from "./display";
 import "./styles.css";
 
 let player = null;
@@ -24,8 +25,12 @@ function newGame() {
   const AIBoard = document.querySelectorAll(".ai-board .square");
   AIBoard.forEach((square) => {
     square.addEventListener("click", () => {
-      const coordinates = square.id.split("-");
+      const coordinates = square.id
+        .replace("p", "")
+        .replace("a", "")
+        .split("-");
       player.attack(parseInt(coordinates[0]), parseInt(coordinates[1]));
+      updateBoardDisplay(ai, true);
       setTimeout(() => {
         ai.attack();
       }, 1000);

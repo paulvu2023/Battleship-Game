@@ -1,0 +1,20 @@
+function updateBoardDisplay(player, isAI = false) {
+  // 'player' could be either the user or the AI
+  for (let i = 0; i < player.gameboard.board.length; i++) {
+    for (let j = 0; j < player.gameboard.board.length; j++) {
+      let thisSquare = null;
+      if (isAI) {
+        thisSquare = document.getElementById(`a${i}-${j}`);
+      } else {
+        thisSquare = document.getElementById(`p${i}-${j}`);
+      }
+      if (player.gameboard.board[i][j] === "Miss") {
+        thisSquare.style.backgroundColor = "pink";
+      } else if (player.gameboard.board[i][j] === "Hit") {
+        thisSquare.style.color = "red";
+      }
+    }
+  }
+}
+
+export { updateBoardDisplay };
