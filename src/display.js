@@ -11,7 +11,7 @@ function updateBoardDisplay(player, isAI = false) {
       if (player.gameboard.board[i][j] === "Miss") {
         thisSquare.style.backgroundColor = "#0f3366";
       } else if (player.gameboard.board[i][j] === "Hit") {
-        thisSquare.style.color = "red";
+        thisSquare.style.backgroundColor = "red";
       }
     }
   }
