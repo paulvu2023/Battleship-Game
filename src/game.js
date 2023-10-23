@@ -47,10 +47,10 @@ class Gameboard {
   receiveAttack(xCoord, yCoord) {
     if (this.board[xCoord][yCoord] !== null) {
       const boardObject = this.board[xCoord][yCoord];
-      if (typeof boardObject === "object" && boardObject.ship instanceof Ship) {
-        boardObject.ship.hit();
+      if (typeof boardObject === "object" && boardObject instanceof Ship) {
+        boardObject.hit();
         this.board[xCoord][yCoord] = "Hit";
-        if (boardObject.ship.isSunk()) {
+        if (boardObject.isSunk()) {
           this.shipCount -= 1;
         }
         return true;
@@ -65,16 +65,12 @@ class Gameboard {
   placeShip(ship, xCoord, yCoord, direction = "vertical") {
     if (this.isValidPlacement(ship, xCoord, yCoord, direction)) {
       if (direction === "vertical") {
-        let index = 1;
         for (let i = yCoord; i < yCoord + ship.length; i++) {
-          this.board[xCoord][i] = { ship, index };
-          index += 1;
+          this.board[xCoord][i] = ship;
         }
       } else {
-        let index = 1;
         for (let i = xCoord; i < xCoord + ship.length; i++) {
-          this.board[i][yCoord] = { ship, index };
-          index += 1;
+          this.board[i][yCoord] = ship;
         }
       }
       this.shipCount += 1;
