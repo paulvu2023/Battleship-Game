@@ -1,5 +1,9 @@
 import { Ship, Player, AI } from "./game";
-import { updateBoardDisplay } from "./display";
+import {
+  updateBoardDisplay,
+  resetBoardDisplay,
+  updateShipCountDisplay,
+} from "./display";
 import "./styles.css";
 
 let player = null;

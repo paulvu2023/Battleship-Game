@@ -1,3 +1,13 @@
+function updateShipCountDisplay(player, isAI = false) {
+  if (isAI) {
+    document.querySelector(".ai-ship-count span").textContent =
+      player.gameboard.shipCount;
+  } else {
+    document.querySelector(".player-ship-count span").textContent =
+      player.gameboard.shipCount;
+  }
+}
+
 function resetBoardDisplay() {
   for (let i = 0; i < player.gameboard.board.length; i++) {
     for (let j = 0; j < player.gameboard.board.length; j++) {
@@ -26,6 +36,7 @@ function updateBoardDisplay(player, isAI = false) {
       }
     }
   }
+  updateShipCountDisplay(player, isAI);
 }
 
-export { updateBoardDisplay, resetBoardDisplay };
+export { updateBoardDisplay, resetBoardDisplay, updateShipCountDisplay };
