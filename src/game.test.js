@@ -1,5 +1,5 @@
 import { experiments } from "webpack";
-import { Ship, Gameboard, Player, AI } from "./classes";
+import { Ship, Gameboard, Player, AI } from "./game";
 
 describe("Player and AI", () => {
   it("properly attacks and receive attacks", () => {

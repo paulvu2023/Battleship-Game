@@ -1,4 +1,4 @@
-import { Ship, Gameboard, Player, AI } from "./classes";
+import { Ship, Gameboard, Player, AI } from "./game";
 import "./styles.css";
 
 document.addEventListener("DOMContentLoaded", (event) => {
