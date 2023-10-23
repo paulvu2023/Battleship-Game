@@ -26,6 +26,9 @@ function newGame() {
   player.gameboard.placeShip(playerShip, 0, 0);
   ai.gameboard.placeShip(AIShip, 0, 0);
 
+  updateShipCountDisplay(player);
+  updateShipCountDisplay(ai, true);
+
   const AIBoard = document.querySelectorAll(".ai-board .square");
   AIBoard.forEach((square) => {
     square.addEventListener("click", () => {
