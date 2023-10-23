@@ -6,6 +6,16 @@ class Player {
     this.lost = null;
   }
 
+  checkGameStatus() {
+    if (this.won) {
+      //end game
+      //display win message
+    } else if (this.lost) {
+      //end game
+      //display lose message
+    }
+  }
+
   attack(xCoord, yCoord) {
     this.enemy.receiveAttack(xCoord, yCoord);
   }
