@@ -38,23 +38,29 @@ function newGame() {
   updateShipCountDisplay(player);
   updateShipCountDisplay(ai, true);
 
+  let canUserClick = true;
+
   const AIBoard = document.querySelectorAll(".ai-board .square");
   AIBoard.forEach((square) => {
     square.addEventListener("click", () => {
-      const coordinates = square.id
-        .replace("p", "")
-        .replace("a", "")
-        .split("-");
-      player.attack(parseInt(coordinates[0]), parseInt(coordinates[1]));
-      updateBoardDisplay(ai, true);
-      setTimeout(() => {
-        ai.attack();
-        updateBoardDisplay(player);
-      }, 1000);
-      if (player.gameboard.shipCount === 0) {
-        displayGameoverPopup("lose");
-      } else if (ai.gameboard.shipCount === 0) {
-        displayGameoverPopup("win");
+      if (canUserClick) {
+        canUserClick = false; // Disable further clicks
+        const coordinates = square.id
+          .replace("p", "")
+          .replace("a", "")
+          .split("-");
+        player.attack(parseInt(coordinates[0]), parseInt(coordinates[1]));
+        updateBoardDisplay(ai, true);
+        setTimeout(() => {
+          ai.attack();
+          updateBoardDisplay(player);
+          canUserClick = true; // Enable clicks after 1 second
+        }, 1000);
+        if (player.gameboard.shipCount === 0) {
+          displayGameoverPopup("lose");
+        } else if (ai.gameboard.shipCount === 0) {
+          displayGameoverPopup("win");
+        }
       }
     });
   });
