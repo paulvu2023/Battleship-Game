@@ -4,6 +4,7 @@ import {
   resetBoardDisplay,
   updateShipCountDisplay,
   displayGameoverPopup,
+  displayPlaceshipPopup,
 } from "./display";
 import "./styles.css";
 
@@ -54,6 +55,8 @@ function newGame() {
 
   player.chooseEnemy(ai);
   ai.chooseEnemy(player);
+
+  displayPlaceshipPopup();
 
   const playerShip = new Ship(5);
   const AIShip = new Ship(5);

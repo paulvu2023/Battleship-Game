@@ -1,3 +1,8 @@
+function displayPlaceshipPopup() {
+  const popup = document.querySelector(".place-ships");
+  popup.showModal();
+}
+
 function displayGameoverPopup(winOrLose) {
   const popup = document.querySelector(".gameover");
   const winMessage = document.querySelector(".who-won");
@@ -55,4 +60,5 @@ export {
   resetBoardDisplay,
   updateShipCountDisplay,
   displayGameoverPopup,
+  displayPlaceshipPopup,
 };
