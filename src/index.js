@@ -13,6 +13,7 @@ const newGameButton = document.getElementById("newgame");
 let player = null;
 let ai = null;
 let canUserClick = true;
+const placementSquares = document.querySelectorAll(".placement-board .square");
 
 newGameButton.addEventListener("click", () => {
   document.querySelector(".gameover").close();
@@ -22,6 +23,15 @@ newGameButton.addEventListener("click", () => {
 });
 
 document.addEventListener("DOMContentLoaded", (event) => {
+  placementSquares.forEach((square) => {
+    square.addEventListener("mouseover", function () {
+      handleSquareHover.call(this, "vertical", 5);
+    });
+
+    square.addEventListener("mouseout", function () {
+      this.style.backgroundColor = "transparent";
+    });
+  });
   newGame();
 });
 

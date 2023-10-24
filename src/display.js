@@ -1,36 +1,33 @@
 function handleSquareHover(direction, length) {
-  const squareId = `pl${this.id.charAt(0)}-${this.id.charAt(1)}`;
+  const squareId = this.id;
 
-  this.style.backgroundColor = "blue";
+  this.style.backgroundColor = "green";
 
-  const [row, col] = squareId.split("-");
-
-  const verticalOffsets = [-1, 1];
-  const horizontalOffsets = [-1, 1];
+  const [row, col] = squareId.replace("pl", "").split("-");
 
   let adjacentSquares = [];
 
   if (direction === "vertical") {
-    verticalOffsets.forEach((offset) => {
-      for (let i = 1; i <= length; i++) {
-        const newRow = String(Number(row) + offset * i);
-        adjacentSquares.push([newRow, col]);
+    for (let i = 1; i < length; i++) {
+      // Use 'length - 1' to highlight 'length' squares in total
+      const newRow = String(Number(row) + i);
+      const adjacentSquare = document.getElementById(`pl${newRow}-${col}`);
+      if (adjacentSquare) {
+        adjacentSquares.push(adjacentSquare);
       }
-    });
+    }
   } else if (direction === "horizontal") {
-    horizontalOffsets.forEach((offset) => {
-      for (let i = 1; i <= length; i++) {
-        const newCol = String(Number(col) + offset * i);
-        adjacentSquares.push([row, newCol]);
+    for (let i = 1; i < length; i++) {
+      const newCol = String(Number(col) + i);
+      const adjacentSquare = document.getElementById(`pl${row}-${newCol}`);
+      if (adjacentSquare) {
+        adjacentSquares.push(adjacentSquare);
       }
-    });
+    }
   }
 
-  adjacentSquares.forEach(([row, col]) => {
-    const adjacentSquare = document.getElementById(`pl${row}-${col}`);
-    if (adjacentSquare) {
-      adjacentSquare.style.backgroundColor = "green";
-    }
+  adjacentSquares.forEach((square) => {
+    square.style.backgroundColor = "green";
   });
 }
 
