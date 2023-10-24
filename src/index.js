@@ -5,6 +5,7 @@ import {
   updateShipCountDisplay,
   displayGameoverPopup,
   displayPlaceshipPopup,
+  handleSquareHover,
 } from "./display";
 import "./styles.css";
 

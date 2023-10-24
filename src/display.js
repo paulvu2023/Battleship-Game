@@ -1,3 +1,39 @@
+function handleSquareHover(direction, length) {
+  const squareId = `pl${this.id.charAt(0)}-${this.id.charAt(1)}`;
+
+  this.style.backgroundColor = "blue";
+
+  const [row, col] = squareId.split("-");
+
+  const verticalOffsets = [-1, 1];
+  const horizontalOffsets = [-1, 1];
+
+  let adjacentSquares = [];
+
+  if (direction === "vertical") {
+    verticalOffsets.forEach((offset) => {
+      for (let i = 1; i <= length; i++) {
+        const newRow = String(Number(row) + offset * i);
+        adjacentSquares.push([newRow, col]);
+      }
+    });
+  } else if (direction === "horizontal") {
+    horizontalOffsets.forEach((offset) => {
+      for (let i = 1; i <= length; i++) {
+        const newCol = String(Number(col) + offset * i);
+        adjacentSquares.push([row, newCol]);
+      }
+    });
+  }
+
+  adjacentSquares.forEach(([row, col]) => {
+    const adjacentSquare = document.getElementById(`pl${row}-${col}`);
+    if (adjacentSquare) {
+      adjacentSquare.style.backgroundColor = "green";
+    }
+  });
+}
+
 function displayPlaceshipPopup() {
   const popup = document.querySelector(".place-ships");
   popup.showModal();
@@ -61,4 +97,5 @@ export {
   updateShipCountDisplay,
   displayGameoverPopup,
   displayPlaceshipPopup,
+  handleSquareHover,
 };
