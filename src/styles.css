@@ -60,7 +60,11 @@ body {
 }
 
 .player-ship-count {
-  margin-right: 20px;
+  margin-right: 40px;
+}
+
+.ai-ship-count {
+  margin-left: 20px;
 }
 
 .player-board {
