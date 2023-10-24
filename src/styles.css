@@ -89,6 +89,14 @@ body {
   font-weight: bold;
 }
 
+.player-board .square:hover {
+  background: #00c1fc;
+}
+
+.ai-board .square:hover {
+  background: red;
+}
+
 /* Styling for AI board */
 .right {
   align-items: start;
