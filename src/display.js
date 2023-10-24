@@ -1,15 +1,11 @@
 function handleSquareHover(direction, length) {
   const squareId = this.id;
-
   this.style.backgroundColor = "green";
-
   const [row, col] = squareId.replace("pl", "").split("-");
-
   let adjacentSquares = [];
 
   if (direction === "vertical") {
     for (let i = 1; i < length; i++) {
-      // Use 'length - 1' to highlight 'length' squares in total
       const newRow = String(Number(row) + i);
       const adjacentSquare = document.getElementById(`pl${newRow}-${col}`);
       if (adjacentSquare) {
@@ -28,6 +24,34 @@ function handleSquareHover(direction, length) {
 
   adjacentSquares.forEach((square) => {
     square.style.backgroundColor = "green";
+  });
+}
+
+function handleRevertAdjacentSquares(direction, length) {
+  const squareId = this.id;
+  const [row, col] = squareId.replace("pl", "").split("-");
+  let adjacentSquares = [];
+
+  if (direction === "vertical") {
+    for (let i = 1; i < length; i++) {
+      const newRow = String(Number(row) + i);
+      const adjacentSquare = document.getElementById(`pl${newRow}-${col}`);
+      if (adjacentSquare) {
+        adjacentSquares.push(adjacentSquare);
+      }
+    }
+  } else if (direction === "horizontal") {
+    for (let i = 1; i < length; i++) {
+      const newCol = String(Number(col) + i);
+      const adjacentSquare = document.getElementById(`pl${row}-${newCol}`);
+      if (adjacentSquare) {
+        adjacentSquares.push(adjacentSquare);
+      }
+    }
+  }
+
+  adjacentSquares.forEach((square) => {
+    square.style.backgroundColor = "transparent";
   });
 }
 
@@ -95,4 +119,5 @@ export {
   displayGameoverPopup,
   displayPlaceshipPopup,
   handleSquareHover,
+  handleRevertAdjacentSquares,
 };

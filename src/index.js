@@ -6,6 +6,7 @@ import {
   displayGameoverPopup,
   displayPlaceshipPopup,
   handleSquareHover,
+  handleRevertAdjacentSquares,
 } from "./display";
 import "./styles.css";
 
@@ -25,11 +26,12 @@ newGameButton.addEventListener("click", () => {
 document.addEventListener("DOMContentLoaded", (event) => {
   placementSquares.forEach((square) => {
     square.addEventListener("mouseover", function () {
-      handleSquareHover.call(this, "vertical", 5);
+      handleSquareHover.call(this, "horizontal", 5);
     });
 
     square.addEventListener("mouseout", function () {
       this.style.backgroundColor = "transparent";
+      handleRevertAdjacentSquares.call(this, "horizontal", 5);
     });
   });
   newGame();
