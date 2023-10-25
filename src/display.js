@@ -17,6 +17,7 @@ function handleSquareHover(direction, length) {
   const squareId = this.id;
   const [row, col] = squareId.replace("pl", "").split("-");
   let adjacentSquares = [];
+  this.style.backgroundColor = "#00c1fc"; // Set the background color of the current square.
 
   if (direction === "vertical") {
     for (let i = 1; i < length; i++) {
@@ -45,15 +46,15 @@ function handleRevertAdjacentSquares(direction, length, player) {
   const squareId = this.id;
   const [row, col] = squareId.replace("pl", "").split("-");
   let adjacentSquares = [];
+  if (player.gameboard.board[row][col] === null) {
+    this.style.backgroundColor = "transparent";
+  }
 
   if (direction === "vertical") {
     for (let i = 1; i < length; i++) {
       const newRow = String(Number(row) + i);
       const adjacentSquare = document.getElementById(`pl${newRow}-${col}`);
-      if (
-        adjacentSquare &&
-        !player.gameboard.board[newRow][col] instanceof Ship
-      ) {
+      if (adjacentSquare && player.gameboard.board[newRow][col] === null) {
         adjacentSquares.push(adjacentSquare);
       }
     }
@@ -61,10 +62,7 @@ function handleRevertAdjacentSquares(direction, length, player) {
     for (let i = 1; i < length; i++) {
       const newCol = String(Number(col) + i);
       const adjacentSquare = document.getElementById(`pl${row}-${newCol}`);
-      if (
-        adjacentSquare &&
-        !player.gameboard.board[row][newCol] instanceof Ship
-      ) {
+      if (adjacentSquare && player.gameboard.board[row][newCol] === null) {
         adjacentSquares.push(adjacentSquare);
       }
     }
