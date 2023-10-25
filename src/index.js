@@ -86,18 +86,15 @@ function placeShip() {
     parseInt(coordinates[0]),
     parseInt(coordinates[1])
   );
+  if (placedShip === true) {
+    shipLength -= 1;
+  }
   updateShipCountDisplay(player);
-  shipLength -= 1;
   updateShipName(shipLength);
   if (shipLength <= 1) {
     closePlaceshipPopup();
   }
   updateBoardDisplay(player);
-  if (placedShip === true) {
-    return true;
-  } else {
-    return false;
-  }
 }
 
 function newGame() {
