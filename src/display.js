@@ -1,6 +1,6 @@
 function handleSquareHover(direction, length) {
   const squareId = this.id;
-  this.style.backgroundColor = "green";
+  this.style.backgroundColor = "#00c1fc";
   const [row, col] = squareId.replace("pl", "").split("-");
   let adjacentSquares = [];
 
@@ -23,7 +23,7 @@ function handleSquareHover(direction, length) {
   }
 
   adjacentSquares.forEach((square) => {
-    square.style.backgroundColor = "green";
+    square.style.backgroundColor = "#00c1fc";
   });
 }
 
