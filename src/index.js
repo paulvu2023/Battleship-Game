@@ -17,7 +17,7 @@ const rotateButton = document.querySelector(".rotate");
 let player = null;
 let ai = null;
 let canUserClick = true;
-let numOfHighlightedSquares = 0;
+let shipLength = 5;
 let shipDirection = "vertical";
 
 rotateButton.addEventListener("click", () => {
@@ -38,16 +38,16 @@ newGameButton.addEventListener("click", () => {
 document.addEventListener("DOMContentLoaded", (event) => {
   placementSquares.forEach((square) => {
     square.addEventListener("mouseover", function () {
-      handleSquareHover.call(this, shipDirection, numOfHighlightedSquares);
+      handleSquareHover.call(this, shipDirection, shipLength);
     });
 
     square.addEventListener("mouseout", function () {
       this.style.backgroundColor = "transparent";
-      handleRevertAdjacentSquares.call(
-        this,
-        shipDirection,
-        numOfHighlightedSquares
-      );
+      handleRevertAdjacentSquares.call(this, shipDirection, shipLength);
+    });
+
+    square.addEventListener("click", function () {
+      placeShip(this);
     });
   });
   newGame();
@@ -78,11 +78,18 @@ AIBoard.forEach((square) => {
   });
 });
 
-function placeShips() {
-  let shipLength = 5;
+function placeShip() {
+  let coordinates = this.id.replace("pl", "").split("-");
+  const playerShip = new Ship(shipLength);
+  player.gameboard.placeShip(playerShip, coordinates[0], coordinates[1]);
+  shipLength -= 1;
+  if (shipLength <= 1) {
+    // closePlaceshipPopup()
+  }
 }
 
 function newGame() {
+  shipLength = 5;
   player = new Player();
   ai = new AI();
 
