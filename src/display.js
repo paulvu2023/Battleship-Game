@@ -41,7 +41,7 @@ function handleSquareHover(direction, length) {
   });
 }
 
-function handleRevertAdjacentSquares(direction, length) {
+function handleRevertAdjacentSquares(direction, length, player) {
   const squareId = this.id;
   const [row, col] = squareId.replace("pl", "").split("-");
   let adjacentSquares = [];
@@ -50,7 +50,10 @@ function handleRevertAdjacentSquares(direction, length) {
     for (let i = 1; i < length; i++) {
       const newRow = String(Number(row) + i);
       const adjacentSquare = document.getElementById(`pl${newRow}-${col}`);
-      if (adjacentSquare) {
+      if (
+        adjacentSquare &&
+        !player.gameboard.board[newRow][col] instanceof Ship
+      ) {
         adjacentSquares.push(adjacentSquare);
       }
     }
@@ -58,7 +61,10 @@ function handleRevertAdjacentSquares(direction, length) {
     for (let i = 1; i < length; i++) {
       const newCol = String(Number(col) + i);
       const adjacentSquare = document.getElementById(`pl${row}-${newCol}`);
-      if (adjacentSquare) {
+      if (
+        adjacentSquare &&
+        !player.gameboard.board[row][newCol] instanceof Ship
+      ) {
         adjacentSquares.push(adjacentSquare);
       }
     }

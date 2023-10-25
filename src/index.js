@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     });
 
     square.addEventListener("mouseout", function () {
-      handleRevertAdjacentSquares.call(this, shipDirection, shipLength);
+      handleRevertAdjacentSquares.call(this, shipDirection, shipLength, player);
     });
 
     square.addEventListener("click", function () {
