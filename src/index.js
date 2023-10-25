@@ -8,6 +8,7 @@ import {
   handleSquareHover,
   handleRevertAdjacentSquares,
   updateShipName,
+  closePlaceshipPopup,
 } from "./display";
 import "./styles.css";
 
@@ -84,7 +85,7 @@ function placeShip() {
   player.gameboard.placeShip(playerShip, coordinates[0], coordinates[1]);
   shipLength -= 1;
   if (shipLength <= 1) {
-    // closePlaceshipPopup()
+    closePlaceshipPopup();
   }
 }
 

@@ -68,6 +68,11 @@ function handleRevertAdjacentSquares(direction, length) {
   });
 }
 
+function closePlaceshipPopup() {
+  const popup = document.querySelector(".place-ships");
+  popup.close();
+}
+
 function displayPlaceshipPopup() {
   const popup = document.querySelector(".place-ships");
   popup.showModal();
@@ -134,4 +139,5 @@ export {
   handleSquareHover,
   handleRevertAdjacentSquares,
   updateShipName,
+  closePlaceshipPopup,
 };
