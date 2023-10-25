@@ -81,7 +81,7 @@ AIBoard.forEach((square) => {
 function placeShip() {
   let coordinates = this.id.replace("pl", "").split("-");
   const playerShip = new Ship(shipLength);
-  player.gameboard.placeShip(
+  const placedShip = player.gameboard.placeShip(
     playerShip,
     parseInt(coordinates[0]),
     parseInt(coordinates[1])
@@ -93,6 +93,11 @@ function placeShip() {
     closePlaceshipPopup();
   }
   updateBoardDisplay(player);
+  if (placedShip === true) {
+    return true;
+  } else {
+    return false;
+  }
 }
 
 function newGame() {
