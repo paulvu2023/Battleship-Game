@@ -37,21 +37,20 @@ newGameButton.addEventListener("click", () => {
 });
 
 document.addEventListener("DOMContentLoaded", (event) => {
+  newGame();
   placementSquares.forEach((square) => {
     square.addEventListener("mouseover", function () {
       handleSquareHover.call(this, shipDirection, shipLength);
     });
 
     square.addEventListener("mouseout", function () {
-      this.style.backgroundColor = "transparent";
       handleRevertAdjacentSquares.call(this, shipDirection, shipLength);
     });
 
     square.addEventListener("click", function () {
-      placeShip(this);
+      placeShip.call(this);
     });
   });
-  newGame();
 });
 
 const AIBoard = document.querySelectorAll(".ai-board .square");
@@ -82,11 +81,18 @@ AIBoard.forEach((square) => {
 function placeShip() {
   let coordinates = this.id.replace("pl", "").split("-");
   const playerShip = new Ship(shipLength);
-  player.gameboard.placeShip(playerShip, coordinates[0], coordinates[1]);
+  player.gameboard.placeShip(
+    playerShip,
+    parseInt(coordinates[0]),
+    parseInt(coordinates[1])
+  );
+  updateShipCountDisplay(player);
   shipLength -= 1;
+  updateShipName(shipLength);
   if (shipLength <= 1) {
     closePlaceshipPopup();
   }
+  updateBoardDisplay(player);
 }
 
 function newGame() {
@@ -97,14 +103,7 @@ function newGame() {
   player.chooseEnemy(ai);
   ai.chooseEnemy(player);
 
+  updateShipName(shipLength);
   displayPlaceshipPopup();
-
-  const playerShip = new Ship(5);
-  const AIShip = new Ship(5);
-
-  player.gameboard.placeShip(playerShip, 0, 0);
-  ai.gameboard.placeShip(AIShip, 0, 0);
-
-  updateShipCountDisplay(player);
   updateShipCountDisplay(ai, true);
 }

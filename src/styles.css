@@ -171,18 +171,22 @@ button {
 
 /* Styling for Place Ships Popup */
 .place-ships {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   border: 2px solid white;
   border-radius: 12px;
   outline: none;
   background:rgb(21, 21, 56);
-  color: white;
-  text-shadow: 0 0 10px rgb(179, 246, 255);
   padding-bottom: 50px;
   width: 550px;
   height: fit-content;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  text-shadow: 0 0 10px rgb(179, 246, 255);
+  overflow: visible;
 }
 
 .welcome {

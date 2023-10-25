@@ -13,7 +13,6 @@ function updateShipName(shipLength) {
 
 function handleSquareHover(direction, length) {
   const squareId = this.id;
-  this.style.backgroundColor = "#00c1fc";
   const [row, col] = squareId.replace("pl", "").split("-");
   let adjacentSquares = [];
 
@@ -124,6 +123,10 @@ function updateBoardDisplay(player, isAI = false) {
         thisSquare.style.backgroundColor = "#0f3366";
       } else if (player.gameboard.board[i][j] === "Hit") {
         thisSquare.style.backgroundColor = "red";
+      } else if (typeof player.gameboard.board[i][j] === "object") {
+        if (!isAI) {
+          thisSquare.style.color = "#00c1fc";
+        }
       }
     }
   }
