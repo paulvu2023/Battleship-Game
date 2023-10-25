@@ -84,7 +84,8 @@ function placeShip() {
   const placedShip = player.gameboard.placeShip(
     playerShip,
     parseInt(coordinates[0]),
-    parseInt(coordinates[1])
+    parseInt(coordinates[1]),
+    shipDirection
   );
   if (placedShip === true) {
     shipLength -= 1;
