@@ -14,6 +14,10 @@ body {
   background: rgb(1, 1, 60);
 }
 
+button {
+  cursor: pointer;
+}
+
 /* Styling for header */
 .header {
   display: flex;
@@ -95,6 +99,10 @@ body {
 
 .ai-board .square:hover {
   background: rgb(135, 13, 13);
+}
+
+.square:hover {
+  cursor: pointer
 }
 
 /* Styling for AI board */
