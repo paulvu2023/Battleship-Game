@@ -1,3 +1,5 @@
+import { Ship } from "./game";
+
 function updateShipName(shipLength) {
   const shipName = document.querySelector(".place-your span");
   if (shipLength === 5) {
@@ -124,8 +126,8 @@ function updateBoardDisplay(player, isAI = false) {
       } else if (player.gameboard.board[i][j] === "Hit") {
         thisSquare.style.backgroundColor = "red";
       } else if (typeof player.gameboard.board[i][j] === "object") {
-        if (!isAI) {
-          thisSquare.style.color = "#00c1fc";
+        if (!isAI && player.gameboard.board[i][j] instanceof Ship) {
+          thisSquare.style.backgroundColor = "#00c1fc";
         }
       }
     }
