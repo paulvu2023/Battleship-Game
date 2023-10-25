@@ -187,6 +187,25 @@ body {
   margin-bottom: 20px;
 }
 
+.rotate {
+  outline: none;
+  border: 2px solid white;
+  border-radius: 10px;
+  background: transparent;
+  color: white;
+  font-family: 'Audiowide', Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  text-shadow: 0 0 10px rgb(179, 246, 255);
+  padding: 10px;
+  margin-bottom: 20px;
+  transition: all .3s ease-in-out;
+}
+
+.rotate:hover {
+  color: rgb(147, 226, 255);
+  background: #070221;
+}
+
 .placement-board {
   width: fit-content;
   height: fit-content;
