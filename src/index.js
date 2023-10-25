@@ -11,10 +11,21 @@ import {
 import "./styles.css";
 
 const newGameButton = document.getElementById("newgame");
+const placementSquares = document.querySelectorAll(".placement-board .square");
+const rotateButton = document.querySelector(".rotate");
 let player = null;
 let ai = null;
 let canUserClick = true;
-const placementSquares = document.querySelectorAll(".placement-board .square");
+let numOfHighlightedSquares = 0;
+let shipDirection = "vertical";
+
+rotateButton.addEventListener("click", () => {
+  if (shipDirection === "vertical") {
+    shipDirection = "horizontal";
+  } else {
+    shipDirection = "vertical";
+  }
+});
 
 newGameButton.addEventListener("click", () => {
   document.querySelector(".gameover").close();
@@ -26,12 +37,16 @@ newGameButton.addEventListener("click", () => {
 document.addEventListener("DOMContentLoaded", (event) => {
   placementSquares.forEach((square) => {
     square.addEventListener("mouseover", function () {
-      handleSquareHover.call(this, "horizontal", 5);
+      handleSquareHover.call(this, shipDirection, numOfHighlightedSquares);
     });
 
     square.addEventListener("mouseout", function () {
       this.style.backgroundColor = "transparent";
-      handleRevertAdjacentSquares.call(this, "horizontal", 5);
+      handleRevertAdjacentSquares.call(
+        this,
+        shipDirection,
+        numOfHighlightedSquares
+      );
     });
   });
   newGame();
@@ -61,6 +76,8 @@ AIBoard.forEach((square) => {
     }
   });
 });
+
+function placeShips() {}
 
 function newGame() {
   player = new Player();
