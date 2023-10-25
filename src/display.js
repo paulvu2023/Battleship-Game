@@ -116,6 +116,7 @@ function updateBoardDisplay(player, isAI = false) {
   for (let i = 0; i < player.gameboard.board.length; i++) {
     for (let j = 0; j < player.gameboard.board.length; j++) {
       let thisSquare = null;
+      const placementSquare = document.getElementById(`pl${i}-${j}`);
       if (isAI) {
         thisSquare = document.getElementById(`a${i}-${j}`);
       } else {
@@ -128,6 +129,7 @@ function updateBoardDisplay(player, isAI = false) {
       } else if (typeof player.gameboard.board[i][j] === "object") {
         if (!isAI && player.gameboard.board[i][j] instanceof Ship) {
           thisSquare.style.backgroundColor = "#00c1fc";
+          placementSquare.style.backgroundColor = "#00c1fc";
         }
       }
     }
