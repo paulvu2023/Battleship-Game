@@ -7,6 +7,7 @@ import {
   displayPlaceshipPopup,
   handleSquareHover,
   handleRevertAdjacentSquares,
+  updateShipName,
 } from "./display";
 import "./styles.css";
 
@@ -77,7 +78,9 @@ AIBoard.forEach((square) => {
   });
 });
 
-function placeShips() {}
+function placeShips() {
+  let shipLength = 5;
+}
 
 function newGame() {
   player = new Player();

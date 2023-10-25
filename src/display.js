@@ -1,3 +1,16 @@
+function updateShipName(shipLength) {
+  const shipName = document.querySelector(".place-your span");
+  if (shipLength === 5) {
+    shipName.textContent = "Carrier";
+  } else if (shipLength === 4) {
+    shipName.textContent = "Battleship";
+  } else if (shipLength === 3) {
+    shipName.textContent = "Cruiser";
+  } else if (shipLength === 2) {
+    shipName.textContent = "Destroyer";
+  }
+}
+
 function handleSquareHover(direction, length) {
   const squareId = this.id;
   this.style.backgroundColor = "#00c1fc";
@@ -120,4 +133,5 @@ export {
   displayPlaceshipPopup,
   handleSquareHover,
   handleRevertAdjacentSquares,
+  updateShipName,
 };
