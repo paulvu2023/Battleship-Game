@@ -104,11 +104,13 @@ function updateShipCountDisplay(player, isAI = false) {
   }
 }
 
-function resetBoardDisplay(player) {
-  for (let i = 0; i < player.gameboard.board.length; i++) {
-    for (let j = 0; j < player.gameboard.board.length; j++) {
+function resetBoardDisplay() {
+  for (let i = 0; i < 10; i++) {
+    for (let j = 0; j < 10; j++) {
       const thisPlayerSquare = document.getElementById(`p${i}-${j}`);
+      const thisPlacementSquare = document.getElementById(`p${i}-${j}`);
       const thisAISquare = document.getElementById(`a${i}-${j}`);
+      thisPlacementSquare.style.backgroundColor = "transparent";
       thisPlayerSquare.style.backgroundColor = "transparent";
       thisAISquare.style.backgroundColor = "transparent";
     }

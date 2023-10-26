@@ -31,8 +31,7 @@ rotateButton.addEventListener("click", () => {
 
 newGameButton.addEventListener("click", () => {
   document.querySelector(".gameover").close();
-  resetBoardDisplay(player);
-  resetBoardDisplay(ai);
+  resetBoardDisplay();
   newGame();
 });
 
@@ -68,7 +67,7 @@ AIBoard.forEach((square) => {
         ai.attack();
         updateBoardDisplay(player);
         canUserClick = true; // Enable clicks after 1 second
-      }, 1000);
+      }, 100);
       if (player.gameboard.shipCount === 0) {
         displayGameoverPopup("lose");
       } else if (ai.gameboard.shipCount === 0) {
