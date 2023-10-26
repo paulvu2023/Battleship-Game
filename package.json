@@ -21,12 +21,10 @@
     "@babel/core": "^7.23.2",
     "@babel/preset-env": "^7.23.2",
     "babel-jest": "^29.7.0",
+    "css-loader": "^6.8.1",
     "jest": "^29.7.0",
+    "style-loader": "^3.3.3",
     "webpack": "^5.89.0",
     "webpack-cli": "^5.1.4"
-  },
-  "dependencies": {
-    "css-loader": "^6.8.1",
-    "style-loader": "^3.3.3"
   }
 }

@@ -86,7 +86,7 @@ function displayPlaceshipPopup() {
 function displayGameoverPopup(winOrLose) {
   const popup = document.querySelector(".gameover");
   const winMessage = document.querySelector(".who-won");
-  if ((winOrLose = "win")) {
+  if (winOrLose === "win") {
     winMessage.textContent = "YOU WIN";
   } else {
     winMessage.textContent = "YOU LOSE";

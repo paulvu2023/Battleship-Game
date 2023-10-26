@@ -81,7 +81,7 @@ AIBoard.forEach((square) => {
 function placeAIShips() {
   let aiShipLength = 5;
   let direction = "horizontal";
-  while (shipLength >= 2) {
+  while (aiShipLength >= 2) {
     let xCoord = Math.floor(Math.random() * 10);
     let yCoord = Math.floor(Math.random() * 10);
     let ship = new Ship(aiShipLength);
