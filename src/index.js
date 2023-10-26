@@ -78,6 +78,23 @@ AIBoard.forEach((square) => {
   });
 });
 
+function placeAIShips() {
+  let aiShipLength = 5;
+  let direction = "horizontal";
+  while (shipLength >= 2) {
+    let xCoord = Math.floor(Math.random() * 10);
+    let yCoord = Math.floor(Math.random() * 10);
+    let ship = new Ship(aiShipLength);
+    ai.gameboard.placeShip(ship, xCoord, yCoord, direction);
+    aiShipLength -= 1;
+    if (direction === "horizontal") {
+      direction = "vertical";
+    } else {
+      direction = "horizontal";
+    }
+  }
+}
+
 function placeShip() {
   let coordinates = this.id.replace("pl", "").split("-");
   const playerShip = new Ship(shipLength);
@@ -105,6 +122,8 @@ function newGame() {
 
   player.chooseEnemy(ai);
   ai.chooseEnemy(player);
+
+  placeAIShips();
 
   updateShipName(shipLength);
   displayPlaceshipPopup();
