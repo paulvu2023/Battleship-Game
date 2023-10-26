@@ -124,6 +124,7 @@ function newGame() {
   ai.chooseEnemy(player);
 
   placeAIShips();
+  updateBoardDisplay(ai, true);
 
   updateShipName(shipLength);
   displayPlaceshipPopup();
