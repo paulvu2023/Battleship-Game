@@ -108,7 +108,7 @@ function resetBoardDisplay() {
   for (let i = 0; i < 10; i++) {
     for (let j = 0; j < 10; j++) {
       const thisPlayerSquare = document.getElementById(`p${i}-${j}`);
-      const thisPlacementSquare = document.getElementById(`p${i}-${j}`);
+      const thisPlacementSquare = document.getElementById(`pl${i}-${j}`);
       const thisAISquare = document.getElementById(`a${i}-${j}`);
       thisPlacementSquare.style.backgroundColor = "transparent";
       thisPlayerSquare.style.backgroundColor = "transparent";
