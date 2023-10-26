@@ -67,7 +67,7 @@ AIBoard.forEach((square) => {
         ai.attack();
         updateBoardDisplay(player);
         canUserClick = true; // Enable clicks after 1 second
-      }, 100);
+      }, 500);
       if (player.gameboard.shipCount === 0) {
         displayGameoverPopup("lose");
       } else if (ai.gameboard.shipCount === 0) {
