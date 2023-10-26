@@ -84,8 +84,10 @@ function placeAIShips() {
     let xCoord = Math.floor(Math.random() * 10);
     let yCoord = Math.floor(Math.random() * 10);
     let ship = new Ship(aiShipLength);
-    ai.gameboard.placeShip(ship, xCoord, yCoord, direction);
-    aiShipLength -= 1;
+    let placedShip = ai.gameboard.placeShip(ship, xCoord, yCoord, direction);
+    if (placedShip) {
+      aiShipLength -= 1;
+    }
     if (direction === "horizontal") {
       direction = "vertical";
     } else {
