@@ -66,7 +66,7 @@ AIBoard.forEach((square) => {
         parseInt(coordinates[1])
       );
       if (hit) {
-        // play hit sound
+        playImpact();
       } else {
         playSplash();
       }
@@ -84,6 +84,13 @@ AIBoard.forEach((square) => {
     }
   });
 });
+
+function playImpact() {
+  const impactSound = document.getElementById("impact");
+  impactSound.currentTime = 0;
+  impactSound.volume = 0.5;
+  impactSound.play();
+}
 
 function playSplash() {
   const splashSound = document.getElementById("splash");
@@ -147,4 +154,4 @@ function newGame() {
   updateShipCountDisplay(ai, true);
 }
 
-export { playSplash };
+export { playSplash, playImpact };

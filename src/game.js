@@ -1,4 +1,4 @@
-import { playSplash } from ".";
+import { playImpact, playSplash } from ".";
 
 class Player {
   constructor() {
@@ -7,7 +7,7 @@ class Player {
   }
 
   attack(xCoord, yCoord) {
-    this.enemy.receiveAttack(xCoord, yCoord);
+    return this.enemy.receiveAttack(xCoord, yCoord);
   }
 
   receiveAttack(xCoord, yCoord) {
@@ -69,6 +69,7 @@ class AI extends Player {
       this.nextAttacks.push(`${xCoord + 1}${yCoord}`);
       this.nextAttacks.push(`${xCoord}${yCoord - 1}`);
       this.nextAttacks.push(`${xCoord}${yCoord + 1}`);
+      playImpact();
     } else {
       playSplash();
     }
