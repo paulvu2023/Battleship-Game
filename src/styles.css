@@ -1,10 +1,69 @@
 html, body {
   height: 100%;
   width: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 * {
   overflow: hidden;
+}
+
+@media (850px <= width <= 1050px){
+  .left .player-board .square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(28px);
+    height: calc(28px);
+    border: 1px solid rgb(168, 207, 242);
+    font-weight: bold;
+  }
+
+  .right .ai-board .square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(20px + 1.5vw);
+    height: calc(20px + 1.5vw);
+    border: 1px solid rgb(251, 148, 148);
+    font-weight: bold;
+  }
+}
+
+@media (width <= 850px){
+  html body {
+    grid-template-rows: 50px 1fr;
+  }
+  
+  body .main {
+    align-items: center;
+    gap: 20px;
+  }
+
+  body .header {
+    font-size: 30px;
+    margin-top: 20px;
+  }
+
+  body .main {
+    flex-direction: column;
+    justify-content: start;
+  }
+
+  .left .player-ship-count {
+    margin-top: 30px;
+  }
+
+  .right .ai-board .square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(20px + 1.3vw);
+    height: calc(20px + 1.3vw);
+    border: 1px solid rgb(251, 148, 148);
+    font-weight: bold;
+  }
 }
 
 body {
@@ -45,6 +104,7 @@ button {
   justify-content: center;
   gap: 80px;
   flex: 1;
+  overflow: auto;
 }
 
 /* Styling for the player's board */
@@ -54,7 +114,7 @@ button {
   flex: 1;
   justify-content: center;
   align-items: end;
-  overflow:visible
+  overflow: visible;
 }
 
 .player-ship-count, .ai-ship-count {
@@ -76,7 +136,7 @@ button {
   border: 2px solid rgb(219, 240, 247);
   flex-direction: column;
   margin-right: 20px;
-  box-shadow: rgba(93, 255, 255, 0.56) 0px 22px 70px 4px;
+  box-shadow: rgba(93, 255, 255, 0.56) 0px 10px 70px 4px;
 }
 
 .row {
@@ -115,7 +175,8 @@ button {
   border: 2px solid rgb(249, 179, 173);
   flex-direction: column;
   margin-right: 20px;
-  box-shadow: rgba(255, 98, 93, 0.7) 0px 22px 70px 10px;
+  box-shadow: rgba(255, 98, 93, 0.7) 0px 10px 70px 10px;
+  margin-bottom: 30px;
 }
 
 .ai-board .square {
@@ -224,7 +285,7 @@ button {
   display: flex;
   border: 2px solid rgb(219, 240, 247);
   flex-direction: column;
-  box-shadow: rgba(93, 255, 255, 0.56) 0px 22px 60px 4px;
+  box-shadow: rgba(93, 255, 255, 0.56) 0px 10px 60px 4px;
 }
 
 .placement-board .square {
