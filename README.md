@@ -4,7 +4,7 @@ Welcome to war, your mission is to destroy the AI Battleships and save humanity.
 
 [Live App](https://paulvu2023.github.io/Battleship-Game/)
 
-![Screenshot from 2023-10-27 11-58-36](https://github.com/paulvu2023/Battleship-Game/assets/118864214/edaa3309-b0ee-4413-bc56-efbe66902821)
+![Battleship Screenshot](https://github.com/paulvu2023/Battleship-Game/assets/118864214/64079596-05a5-4d72-9168-d58d8b9b9046)
 
 ## Features
 
