@@ -9,7 +9,7 @@ class Player {
   }
 
   receiveAttack(xCoord, yCoord) {
-    this.gameboard.receiveAttack(xCoord, yCoord);
+    return this.gameboard.receiveAttack(xCoord, yCoord);
   }
 
   chooseEnemy(player) {
@@ -20,17 +20,54 @@ class AI extends Player {
   constructor() {
     super();
     this.attacks = []; // array of previous attacks. Example: '09' = coordinates[0][9]
+    this.nextAttacks = [];
+    this.lastAttackHit = false;
   }
 
   attack() {
+    if (this.nextAttacks.length > 0) {
+      let coordinates = this.nextAttacks.pop();
+      let xCoord = parseInt(coordinates[0]);
+      let yCoord = parseInt(coordinates[1]);
+
+      if (
+        !this.attacks.includes(`${xCoord}${yCoord}`) &&
+        xCoord >= 0 &&
+        xCoord <= 9 &&
+        yCoord >= 0 &&
+        yCoord <= 9
+      ) {
+        let hit = this.enemy.receiveAttack(xCoord, yCoord);
+        this.attacks.push(`${xCoord}${yCoord}`);
+        this.addNextAttacks(hit, xCoord, yCoord);
+      } else {
+        this.attackRandomly();
+      }
+    } else {
+      this.attackRandomly();
+    }
+  }
+
+  attackRandomly() {
     let xCoord = Math.floor(Math.random() * 10);
     let yCoord = Math.floor(Math.random() * 10);
+
     while (this.attacks.includes(`${xCoord}${yCoord}`)) {
       xCoord = Math.floor(Math.random() * 10);
       yCoord = Math.floor(Math.random() * 10);
     }
     this.attacks.push(`${xCoord}${yCoord}`);
-    this.enemy.receiveAttack(xCoord, yCoord);
+    let hit = this.enemy.receiveAttack(xCoord, yCoord);
+    this.addNextAttacks(hit, xCoord, yCoord);
+  }
+
+  addNextAttacks(hit, xCoord, yCoord) {
+    if (hit) {
+      this.nextAttacks.push(`${xCoord - 1}${yCoord}`);
+      this.nextAttacks.push(`${xCoord + 1}${yCoord}`);
+      this.nextAttacks.push(`${xCoord}${yCoord - 1}`);
+      this.nextAttacks.push(`${xCoord}${yCoord + 1}`);
+    }
   }
 }
 
