@@ -29,6 +29,8 @@ rotateButton.addEventListener("click", () => {
   }
 });
 
+document.addEventListener("mousemove", playMusic);
+
 newGameButton.addEventListener("click", () => {
   document.querySelector(".gameover").close();
   resetBoardDisplay();
@@ -36,7 +38,6 @@ newGameButton.addEventListener("click", () => {
 });
 
 document.addEventListener("DOMContentLoaded", (event) => {
-  playMusic();
   newGame();
   placementSquares.forEach((square) => {
     square.addEventListener("mouseover", function () {
@@ -49,6 +50,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     square.addEventListener("click", function () {
       placeShip.call(this);
+      playImpact();
     });
   });
 });
@@ -76,7 +78,7 @@ AIBoard.forEach((square) => {
         ai.attack();
         updateBoardDisplay(player);
         canUserClick = true; // Enable clicks after 1 second
-      }, 500);
+      }, 700);
       if (player.gameboard.shipCount === 0) {
         displayGameoverPopup("lose");
       } else if (ai.gameboard.shipCount === 0) {
@@ -88,7 +90,6 @@ AIBoard.forEach((square) => {
 
 function playMusic() {
   const music = document.getElementById("music");
-  music.currentTime = 0;
   music.volume = 0.5;
   music.play();
 }
