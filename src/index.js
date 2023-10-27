@@ -36,6 +36,7 @@ newGameButton.addEventListener("click", () => {
 });
 
 document.addEventListener("DOMContentLoaded", (event) => {
+  playMusic();
   newGame();
   placementSquares.forEach((square) => {
     square.addEventListener("mouseover", function () {
@@ -85,17 +86,24 @@ AIBoard.forEach((square) => {
   });
 });
 
+function playMusic() {
+  const music = document.getElementById("music");
+  music.currentTime = 0;
+  music.volume = 0.75;
+  music.play();
+}
+
 function playImpact() {
   const impactSound = document.getElementById("impact");
   impactSound.currentTime = 0;
-  impactSound.volume = 0.5;
+  impactSound.volume = 0.75;
   impactSound.play();
 }
 
 function playSplash() {
   const splashSound = document.getElementById("splash");
   splashSound.currentTime = 0;
-  splashSound.volume = 0.5;
+  splashSound.volume = 0.75;
   splashSound.play();
 }
 
