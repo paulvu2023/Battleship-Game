@@ -1,1 +1,41 @@
 # Battleship-Game
+
+Welcome to war, your mission is to destroy the AI Battleships and save humanity.
+
+[Live App](https://paulvu2023.github.io/Battleship-Game/)
+
+![Screenshot from 2023-10-27 11-58-36](https://github.com/paulvu2023/Battleship-Game/assets/118864214/edaa3309-b0ee-4413-bc56-efbe66902821)
+
+## Features
+
+In Battleship, you can:
+
+- **Strategically Place Ships**: Easily place your ships any direction by clicking on the board.
+
+- **Outsmart AI**: The Artificial Intelligence uses a combination of random and strategic attacks.
+
+- **Check the number of Enemy ships**: The Ship Counter is easy to see and intuitive.
+
+- **Train your Brain**: Calculate the most optimal attacks and learn to strategize.
+
+## How It's Made:
+
+**Tech used:** HTML, CSS, JavaScript
+
+In short, Battleship was created using "Test Driven Development" which means that I created tests for classes and functions before I wrote them. I also used "Object Oriented Programming", so I used a lot of classses and methods. I began the project by creating tests for the classes and methods for Ships, Players, and Gameboards. Then I implemented the UI, the most difficult part, which came with a lot of problems. I 'connected' the HTML and the JavaScript using event listeners and DOM manipulation. Finally, I revamped the AI and increased it's attacking intelligence.
+
+# Improvements:
+
+Battleship could be improved by implementing a probability density map. It would allow the AI to attack squares with the highest probability of having a ship and make it much harder for the user to win.
+
+# Lessons Learned:
+
+I learned a lot about Test Driven Development, unit testing, and mocking. I also learned about extremely (too extreme FOR NOW) advanced ways of making the most optimal Battleship AI's that would be impossible for a human to beat.
+
+## Contact Information
+
+If you have any questions or feedback, please don't hesitate to reach out:
+
+- Email: [workpaulvu@gmail.com](mailto:workpaulvu@gmail.com)
+  
+- LinkedIn: [Paul Vu on LinkedIn](https://www.linkedin.com/in/paul-vu-business)
