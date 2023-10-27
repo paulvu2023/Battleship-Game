@@ -61,13 +61,21 @@ AIBoard.forEach((square) => {
         .replace("p", "")
         .replace("a", "")
         .split("-");
-      player.attack(parseInt(coordinates[0]), parseInt(coordinates[1]));
+      let hit = player.attack(
+        parseInt(coordinates[0]),
+        parseInt(coordinates[1])
+      );
+      if (hit) {
+        // play hit sound
+      } else {
+        playSplash();
+      }
       updateBoardDisplay(ai, true);
       setTimeout(() => {
         ai.attack();
         updateBoardDisplay(player);
         canUserClick = true; // Enable clicks after 1 second
-      }, 300);
+      }, 500);
       if (player.gameboard.shipCount === 0) {
         displayGameoverPopup("lose");
       } else if (ai.gameboard.shipCount === 0) {
@@ -76,6 +84,13 @@ AIBoard.forEach((square) => {
     }
   });
 });
+
+function playSplash() {
+  const splashSound = document.getElementById("splash");
+  splashSound.currentTime = 0;
+  splashSound.volume = 0.5;
+  splashSound.play();
+}
 
 function placeAIShips() {
   let aiShipLength = 5;
@@ -131,3 +146,5 @@ function newGame() {
   displayPlaceshipPopup();
   updateShipCountDisplay(ai, true);
 }
+
+export { playSplash };

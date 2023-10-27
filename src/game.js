@@ -1,3 +1,5 @@
+import { playSplash } from ".";
+
 class Player {
   constructor() {
     this.gameboard = new Gameboard();
@@ -67,6 +69,8 @@ class AI extends Player {
       this.nextAttacks.push(`${xCoord + 1}${yCoord}`);
       this.nextAttacks.push(`${xCoord}${yCoord - 1}`);
       this.nextAttacks.push(`${xCoord}${yCoord + 1}`);
+    } else {
+      playSplash();
     }
   }
 }
