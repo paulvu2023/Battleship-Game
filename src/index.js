@@ -89,7 +89,7 @@ AIBoard.forEach((square) => {
 function playMusic() {
   const music = document.getElementById("music");
   music.currentTime = 0;
-  music.volume = 0.75;
+  music.volume = 0.5;
   music.play();
 }
 
