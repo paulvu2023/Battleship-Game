@@ -10,11 +10,11 @@ Welcome to war, your mission is to destroy the AI Battleships and save humanity.
 
 In Battleship, you can:
 
-- **Strategically Place Ships**: Easily place your ships any direction by clicking on the board.
+- **Strategically Place Ships**: Easily place your ships in any direction by clicking on the board.
 
-- **Outsmart AI**: The Artificial Intelligence uses a combination of random and strategic attacks.
+- **Compete against AI**: The Artificial Intelligence uses a combination of random and strategic attacks.
 
-- **Check the number of Enemy ships**: The Ship Counter is easy to see and intuitive.
+- **Check ship status**: The Ship Counter is easy to see and intuitive.
 
 - **Train your Brain**: Calculate the most optimal attacks and learn to strategize.
 
@@ -22,7 +22,7 @@ In Battleship, you can:
 
 **Tech used:** HTML, CSS, JavaScript
 
-In short, Battleship was created using "Test Driven Development" which means that I created tests for classes and functions before I wrote them. I also used "Object Oriented Programming", so I used a lot of classses and methods. I began the project by creating tests for the classes and methods for Ships, Players, and Gameboards. Then I implemented the UI, the most difficult part, which came with a lot of problems. I 'connected' the HTML and the JavaScript using event listeners and DOM manipulation. Finally, I revamped the AI and increased it's attacking intelligence.
+In short, Battleship was created using "Test Driven Development" which means that I created tests for classes and functions before I wrote them. I began the project by creating tests for the classes and methods for Ships, Players, and Gameboards. Then, I implemented the UI, the most difficult part, which came with a lot of problems. I 'connected' the HTML and the JavaScript using event listeners and DOM manipulation. Finally, I revamped the AI and increased it's attacking intelligence.
 
 # Improvements:
 
