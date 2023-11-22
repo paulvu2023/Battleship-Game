@@ -8,8 +8,6 @@ Welcome to war, your mission is to destroy the AI Battleships and save humanity.
 
 ## Features
 
-In Battleship, you can:
-
 - **Strategically Place Ships**: Easily place your ships in any direction by clicking on the board.
 
 - **Compete against AI**: The Artificial Intelligence uses a combination of random and strategic attacks.
