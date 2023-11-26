@@ -1,6 +1,6 @@
 # Battleship-Game
 
-Welcome to war, your mission is to destroy the AI Battleships and save humanity.
+Welcome to Battleship, your mission is to destroy the AI Battleships and save humanity.
 
 [Live App](https://paulvu2023.github.io/Battleship-Game/)
 
