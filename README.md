@@ -24,7 +24,7 @@ In short, Battleship was created using "Test Driven Development" which means tha
 
 # Improvements:
 
-Battleship could be improved by implementing a probability density map. It would allow the AI to attack squares with the highest probability of having a ship and make it much harder for the user to win.
+Battleship could be optimized by implementing a "Hard Mode" where the AI attacks using a probability density map. This would allow the AI to only attack squares with the highest probability of having a ship, making it much difficult for the player to win.
 
 # Lessons Learned:
 
